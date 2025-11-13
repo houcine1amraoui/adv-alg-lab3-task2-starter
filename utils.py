@@ -1,21 +1,3 @@
-def greedy(coins, amount):
-    # Sort coins descendingly
-    coins.sort(reverse=True)
-
-    result = []
-    remaining = amount
-    
-    for coin in coins:
-        while remaining >= coin:
-            remaining -= coin
-            result.append(coin)
-    
-    if remaining != 0:
-        print("No possible solution")
-        return -1
-    
-    return result
-
 def brute_force(coins, amount):
     # Base cases
     if amount == 0:
