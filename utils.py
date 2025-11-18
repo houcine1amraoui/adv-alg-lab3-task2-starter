@@ -15,7 +15,7 @@ def brute_force(coins, amount):
 
     return min_coins
 
-def dynamic_programming(coins, amount, memo=None):
+def memoization(coins, amount, memo=None):
     # modify the brute force function
     # with memoization
 
@@ -29,8 +29,19 @@ def dynamic_programming(coins, amount, memo=None):
     min_coins = float('inf')
 
     for coin in coins:
-        res = dynamic_programming(coins, amount - coin, memo)
+        res = memoization(coins, amount - coin, memo)
         if res != float('inf'):
             min_coins = min(min_coins, 1 + res)
 
     return min_coins
+
+def bottom_up(coins, amount):
+    # Create DP table of size amount+1
+    # dp[x] = minimum coins needed to make amount x
+    dp = [float('inf')] * (amount + 1)
+
+    # Base case: 0 coins needed to make amount 0
+    dp[0] = 0
+
+    # complete the code
+    
